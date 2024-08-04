@@ -1,0 +1,156 @@
+/Users/chris/miniforge3/envs/SlideScanner/bin/python /Users/chris/PycharmProjects/SlideScanner/scanner.py
+-----+-------------------+------------------------------------------------------
+   # | CommonArguments   | value
+-----+-------------------+------------------------------------------------------
+   1 | tag               |
+   2 | env.project       | SlideScanner
+   3 | env.job_name      | scanner
+   4 | env.job_version   |
+   5 | env.hostname      | ChrisBookPro.local
+   6 | env.hostaddr      | 192.168.0.248
+   7 | env.time_stamp    | 0805.000648
+   8 | env.python_path   | /Users/chris/miniforge3/envs/SlideScanner/bin/python
+   9 | env.current_dir   | /Users/chris/PycharmProjects/SlideScanner
+  10 | env.current_file  | /Users/chris/PycharmProjects/SlideScanner/scanner.py
+  11 | env.working_dir   | /Users/chris/PycharmProjects/SlideScanner
+  12 | env.command_args  | []
+  13 | env.num_ip_addrs  | 0
+  14 | env.max_workers   | 1
+  15 | env.debugging     | False
+  16 | env.msg_level     | 20
+  17 | env.msg_format    | %(message)s
+  18 | env.date_format   | [%m.%d %H:%M:%S]
+  19 | env.output_home   |
+  20 | env.logging_file  |
+  21 | env.argument_file |
+  22 | time.started      |
+  23 | time.settled      |
+  24 | time.elapsed      |
+-----+-------------------+------------------------------------------------------
+================================================================================
+[INIT] WritingAnalysis
+================================================================================
+/Users/chris/Seafile/temp/찬양 PPT/DeepDeepDown.pptx
+[
+    [
+        {
+            "name": "제목 2",
+            "text": "Deep Deep Down"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "Deep Deep down in my heart<BR>Deep down in my heart~<BR>Deep Deep down in my heart<BR>Deep down in my heart~"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "Deep Deep Down"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "Do you love Jesus<BR>Deep down in your heart?<BR>Yes! I love Jesus<BR>Deep down in my heart!"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "Deep Deep Down"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "Deep Deep Down Down!<BR>Deep down in my heart~<BR>Deep Deep Down Down!<BR>Deep down in my heart~"
+        }
+    ]
+]
+/Users/chris/Seafile/temp/찬양 PPT/가나의혼인잔치 (찬136).pptx
+[
+    [
+        {
+            "name": "제목 2",
+            "text": "가나의 혼인 잔치"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "갈릴리 가나의 혼인잔치는<BR>모든 사람 축복과 기쁨으로 가득하네<BR>제자들과 주님도 초대되었네<BR>시간이 지날수록 포도주는 비어가네"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "가나의 혼인 잔치"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "어머니는 주님께 조용히 부탁하셨네<BR>그가 말씀하시네 나의 때가 아니라고<BR>이스라엘은 메시아를 기다려 왔네<BR>어머니 마리아는 그를 주로 믿었다네"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "가나의 혼인 잔치"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "가서 물을 채워라 주님이 말씀하셨네<BR>물은 이미 변하여 포도주가 되어있네<BR>능력의 그 말씀이 모두의 기쁨 되어있네"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "가나의 혼인 잔치"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "능력의 그 말씀이 모두의 기쁨 되었네<BR>이루신 그 표적이 그의 영광 보이셨네"
+        }
+    ]
+]
+/Users/chris/Seafile/temp/찬양 PPT/가난한영혼 (지극히작은자하나에게) (쏠032).pptx
+[
+    [
+        {
+            "name": "제목 2",
+            "text": "지극히 작은 자 하나에게"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "가난한 영혼 억눌린 영혼<BR>지극히 작은 영혼까지<BR>주의 사랑을 베풀리라<BR>아름다운 그 사랑을"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "지극히 작은 자 하나에게"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "연약한 영혼 절망한 영혼<BR>지극히 작은 영혼까지<BR>주의 사랑을 전하리라<BR>아름다운 그 사랑을"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "지극히 작은 자 하나에게"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "그들 모두 우리 사랑 원하고 있네<BR>내 작은 사랑 까지도<BR>주님 사랑 베풀 때 주님 기뻐하시네<BR>우리를 축복하시네"
+        }
+    ],
+    [
+        {
+            "name": "제목 2",
+            "text": "지극히 작은 자 하나에게"
+        },
+        {
+            "name": "내용 개체 틀 3",
+            "text": "주님 사랑 그들에게 전하리라<BR>지극히 작은 자 하나에게<BR>주님 사랑 온 세상에 가득하리라<BR>온 세상에 가득히"
+        }
+    ]
+]
+================================================================================
+[EXIT] WritingAnalysis ($=00:00:00.024)
+================================================================================
+
+Process finished with exit code 0
