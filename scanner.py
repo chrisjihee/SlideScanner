@@ -1,5 +1,3 @@
-import re
-
 from pptx import Presentation
 
 from chrisbase.data import *
@@ -77,6 +75,8 @@ def scan_pptx(file_path):
         }
     return None
 
+
+base_path = "resource/pptx-base.pptx"
 input_dir = "/Users/chris/Seafile/love/찬양 PPT"
 output_dir = "/Users/chris/Seafile/temp/찬양 PPT - New"
 output_dir = make_dir(output_dir)
@@ -89,14 +89,16 @@ with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
             contents_set.add(json.dumps(contents, ensure_ascii=False))
     contents_set = [json.loads(x) for x in contents_set]
     contents_set = sorted(contents_set, key=lambda x: x["fname"])
-    for x in contents_set:
-        print(json.dumps(x, indent=4, ensure_ascii=False))
-    fcounts = []
     for contents in contents_set:
-        fcounts.append('\t'.join([
-            f"NUM{sum(1 for x in contents_set if x['fname'] == contents['fname'])}",
-            contents['fname'],
-            contents['title'],
-        ]))
-    for x in sorted(fcounts):
-        print(x)
+        print(json.dumps(contents, indent=4, ensure_ascii=False))
+        output_path = output_dir / (contents["fname"] + ".pptx")
+        if output_path.exists():
+            continue
+        base_pptx = Presentation(base_path)
+        new_slide = base_pptx.slide_layouts[0]
+        title = contents["title"]
+        for page in contents["pages"]:
+            slide = base_pptx.slides.add_slide(new_slide)
+            slide.shapes.placeholders[0].text = title
+            slide.shapes.placeholders[1].text = page.replace("<BR>", "\n")
+        base_pptx.save(output_path)
