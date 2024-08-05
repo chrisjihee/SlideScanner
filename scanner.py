@@ -27,11 +27,26 @@ def scan_pptx(file_path):
     return file_cont
 
 
-with JobTimer("WritingAnalysis", rt=1, rb=1, rw=80, rc='=', verbose=1):
-    # input_files = sorted(Path("/Users/chris/Seafile/love/찬양 PPT").glob("*.pptx"))[:1]
-    input_files = sorted(Path("/Users/chris/Seafile/temp/찬양 PPT").glob("*.pptx"))
+def check_shape_name(file_path):
+    file_cont = list()
+    for slide in Presentation(file_path).slides:
+        slide_cont = []
+        for shape in slide.shapes:
+            slide_cont.append(shape.name)
+        if (slide_cont == ["제목 2", "내용 개체 틀 3"] or
+                slide_cont == ["제목 1", "내용 개체 틀 2"]):
+            pass
+        else:
+            file_cont.append(slide_cont)
+    return file_cont
+
+
+with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
+    input_files = sorted(Path("/Users/chris/Seafile/love/찬양 PPT").glob("*.pptx"))
+    # input_files = sorted(Path("/Users/chris/Seafile/temp/찬양 PPT").glob("*.pptx"))
 
     for file in input_files:
-        print(file)
-        contents = scan_pptx(file)
-        print(json.dumps(contents, indent=4, ensure_ascii=False))
+        contents = check_shape_name(file)
+        if contents:
+            print(file)
+            print(json.dumps(contents, indent=4, ensure_ascii=False))
