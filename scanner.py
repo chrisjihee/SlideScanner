@@ -77,13 +77,13 @@ def scan_pptx(file_path):
         }
     return None
 
+input_dir = "/Users/chris/Seafile/love/찬양 PPT"
+output_dir = "/Users/chris/Seafile/temp/찬양 PPT - New"
+output_dir = make_dir(output_dir)
 
 with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
-    input_files = sorted(Path("/Users/chris/Seafile/love/찬양 PPT").glob("*.pptx"))
-    # input_files = sorted(Path("/Users/chris/Seafile/temp/찬양 PPT").glob("*.pptx"))
-
     contents_set = set()
-    for file in input_files:
+    for file in sorted(Path(input_dir).glob("*.pptx")):
         contents = scan_pptx(file)
         if contents:
             contents_set.add(json.dumps(contents, ensure_ascii=False))
