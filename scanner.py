@@ -39,8 +39,8 @@ index_pattern = re.compile(r"\([^\)]+?[0-9]+?\)")
 acceptable_index_prefix = ['기도회', '찬']
 
 def scan_pptx(file_path):
-    title = None
-    pages = list()
+    title_text = None
+    page_texts = list()
 
     def index_prefix(x):
         return [a for a in re.split(r"[0-9]+|\(|\)", x) if a][0]
@@ -57,21 +57,17 @@ def scan_pptx(file_path):
         assert first_shape.name in ["제목 1", "제목 2"]
         second_shape = slide.shapes[1]
         assert second_shape.name in ["내용 개체 틀 2", "내용 개체 틀 3"]
-        if not title:
-            title = get_shape_text(first_shape)
-        pages.append(get_shape_text(second_shape))
-    if title and pages:
-        lines_ns = to_fname(''.join(''.join(pages[0].split(BR_MARK)[:2]).split()))
-        title_ns = to_fname(''.join(title.split("(")[0].split()))
-
-        fname = lines_ns if lines_ns.startswith(title_ns) else f"{lines_ns} ({title_ns})"
-        for ii in index:
-            fname = f"{ii} {fname}"
+        if not title_text:
+            title_text = get_shape_text(first_shape)
+        page_texts.append(get_shape_text(second_shape))
+    if title_text and page_texts:
+        lines_ns = to_fname(''.join(''.join(page_texts[0].split(BR_MARK)[:2]).split()))
+        title_ns = to_fname(''.join(title_text.split("(")[0].split()))
+        index.append(lines_ns if lines_ns.startswith(title_ns) else f"{lines_ns} ({title_ns})")
         return {
-            "fname": fname,
-            "title": title,
-            "pages": pages,
-            # "origin": str(file_path),
+            "fname": ' '.join(index),
+            "title": title_text,
+            "pages": page_texts,
         }
     return None
 
