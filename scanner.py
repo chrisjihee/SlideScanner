@@ -54,9 +54,17 @@ def scan_pptx(file_path):
     for slide in Presentation(file_path).slides:
         assert len(slide.shapes) == 2
         first_shape = slide.shapes[0]
-        assert first_shape.name in ["제목 1", "제목 2"]
+        assert first_shape.name in [
+            "제목 1",
+            "제목 2",
+            "Title 1",
+        ], f"first_shape.name={first_shape.name}"
         second_shape = slide.shapes[1]
-        assert second_shape.name in ["내용 개체 틀 2", "내용 개체 틀 3"]
+        assert second_shape.name in [
+            "내용 개체 틀 2",
+            "내용 개체 틀 3",
+            "Content Placeholder 2",
+        ], f"second_shape.name={second_shape.name}"
         if not title_text:
             title_text = get_shape_text(first_shape)
         page_texts.append(get_shape_text(second_shape))
@@ -72,14 +80,14 @@ def scan_pptx(file_path):
     return None
 
 
-base_path = "resource/pptx-base.pptx"
+base_path = "resource/base-key-pptx.pptx"
 input_dir = "/Users/chris/Seafile/love/찬양 PPT"
-output_dir = "/Users/chris/Seafile/temp/찬양 PPT - New"
+output_dir = "/Users/chris/Seafile/love/찬양 PPT2"
 output_dir = make_dir(output_dir)
 
 with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
     contents_set = set()
-    for file in sorted(Path(input_dir).glob("*.pptx")):
+    for file in sorted(Path(input_dir).glob("*.pptx"))[:10]:
         contents = scan_pptx(file)
         if contents:
             contents_set.add(json.dumps(contents, ensure_ascii=False))
@@ -88,8 +96,8 @@ with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
     for contents in contents_set:
         print(json.dumps(contents, indent=4, ensure_ascii=False))
         output_path = output_dir / (contents["fname"] + ".pptx")
-        if output_path.exists():
-            continue
+        # if output_path.exists():
+        #     continue
         base_pptx = Presentation(base_path)
         new_slide = base_pptx.slide_layouts[0]
         title = contents["title"]
