@@ -63,6 +63,7 @@ def scan_pptx(file_path):
         assert second_shape.name in [
             "내용 개체 틀 2",
             "내용 개체 틀 3",
+            "Text Placeholder 2",
             "Content Placeholder 2",
         ], f"second_shape.name={second_shape.name}"
         if not title_text:
@@ -87,7 +88,7 @@ output_dir = make_dir(output_dir)
 
 with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
     contents_set = set()
-    for file in sorted(Path(input_dir).glob("*.pptx"))[:10]:
+    for file in sorted(Path(input_dir).glob("*.pptx")):
         contents = scan_pptx(file)
         if contents:
             contents_set.add(json.dumps(contents, ensure_ascii=False))
