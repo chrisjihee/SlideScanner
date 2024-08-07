@@ -17,6 +17,14 @@ args.info_args()
 
 BR_MARK = "<BR>"
 
+
+def remove_all_slides(prs: Presentation):
+    for i, x in enumerate(prs.slides._sldIdLst):
+        prs.part.drop_rel(x.rId)
+        del prs.slides._sldIdLst[i]
+    return prs
+
+
 def get_shape_text(shape):
     return ' '.join(BR_MARK.join(x.strip() for x in str(shape.text).strip().replace("\t", " ").replace("\r", "").replace("\x0b", "\n").split("\n")).split())
 
@@ -81,7 +89,7 @@ def scan_pptx(file_path):
     return None
 
 
-base_path = "resource/base-key-pptx.pptx"
+base_path = "resource/base-key.pptx"
 input_dir = "/Users/chris/Seafile/love/찬양 PPT"
 output_dir = "/Users/chris/Seafile/love/찬양 PPT2"
 output_dir = make_dir(output_dir)
@@ -97,13 +105,11 @@ with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):
     for contents in contents_set:
         print(json.dumps(contents, indent=4, ensure_ascii=False))
         output_path = output_dir / (contents["fname"] + ".pptx")
-        # if output_path.exists():
-        #     continue
-        base_pptx = Presentation(base_path)
-        new_slide = base_pptx.slide_layouts[0]
+        base_pptx = remove_all_slides(Presentation(base_path))
+        slide_layout = base_pptx.slide_layouts[0]
         title = contents["title"]
         for page in contents["pages"]:
-            slide = base_pptx.slides.add_slide(new_slide)
+            slide = base_pptx.slides.add_slide(slide_layout)
             slide.shapes.placeholders[0].text = title
             slide.shapes.placeholders[1].text = page.replace("<BR>", "\n")
         base_pptx.save(output_path)
