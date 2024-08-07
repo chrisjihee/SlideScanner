@@ -89,9 +89,10 @@ def scan_pptx(file_path):
     return None
 
 
+user_name = "chris"
 base_path = "resource/base-key.pptx"
-input_dir = "/Users/chris/Seafile/love/찬양 PPT"
-output_dir = "/Users/chris/Seafile/love/찬양 PPT2"
+input_dir = f"/Users/{user_name}/Library/CloudStorage/OneDrive-전북대학교/찬양 PPT"
+output_dir = f"/Users/{user_name}/Library/CloudStorage/OneDrive-전북대학교/찬양 PPT2"
 output_dir = make_dir(output_dir)
 
 with JobTimer(args.env.job_name, rt=1, rb=1, rw=80, rc='=', verbose=1):

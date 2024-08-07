@@ -8,7 +8,7 @@
    4 | env.job_version   |
    5 | env.hostname      | ChrisBookPro.local
    6 | env.hostaddr      | 192.168.200.237
-   7 | env.time_stamp    | 0808.010040
+   7 | env.time_stamp    | 0808.013317
    8 | env.python_path   | /Users/chris/miniforge3/envs/SlideScanner/bin/python
    9 | env.current_dir   | /Users/chris/PycharmProjects/SlideScanner
   10 | env.current_file  | /Users/chris/PycharmProjects/SlideScanner/scanner.py
@@ -24097,7 +24097,7 @@
     ]
 }
 ================================================================================
-[EXIT] scanner ($=00:00:55.246)
+[EXIT] scanner ($=00:00:56.355)
 ================================================================================
 
 Process finished with exit code 0
